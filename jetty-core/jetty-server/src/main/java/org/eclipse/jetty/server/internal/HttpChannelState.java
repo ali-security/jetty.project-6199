@@ -709,11 +709,6 @@ public class HttpChannelState implements HttpChannel, Components
             MultiPartFormData.Parts parts = MultiPartFormData.getParts(_request);
             if (parts != null)
                 parts.close();
-
-            // TODO: why is this needed?
-            long idleTO = getHttpConfiguration().getIdleTimeout();
-            if (idleTO > 0 && _oldIdleTimeout != idleTO)
-                stream.setIdleTimeout(_oldIdleTimeout);
         }
         finally
         {
